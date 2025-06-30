@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int reverse(int x) {
+        int reverse_number = 0;
+        while (x != 0) {
+            int last_elem = x % 10;
+            x /= 10;
+            if ((reverse_number > 214748364) || (reverse_number == 214748364 && last_elem > 7)) 
+            return 0;
+            if ((reverse_number < -214748364) || (reverse_number == -214748364 && last_elem < -8)) 
+            return 0;
+            reverse_number = reverse_number * 10 + last_elem;
+        }
+        return reverse_number;
+    }
+};
